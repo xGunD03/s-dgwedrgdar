@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>last choice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+    <!-- Google tag (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GWYG74P3Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6GWYG74P3Y');
+
+      // Track page view
+      gtag('event', 'page_view', {
+          'page_title': 'yes_next_page',
+          'page_path': '/5.next.html'
+      });
+
+      // Track click + fade-out rồi chuyển trang
+      function trackClick(choice, targetUrl) {
+        gtag('event', 'button_click', {
+          'button_choice': choice,
+          'page': '5.next.html'
+        });
+
+        document.body.classList.add("fade-out");
+        setTimeout(function(){
+          window.location.href = targetUrl;
+        }, 800); // delay nhẹ cho mượt
+      }
+
+      // Fade-in khi load trang
+      window.onload = function(){
+          document.body.classList.add("fade-in");
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            background-color: #fde1ea;
+            text-align: left;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: auto;
+            padding-top: 150px;
+            font-size: 22px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        body.fade-in { opacity: 1; }
+        body.fade-out { opacity: 0; }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+            white-space: pre-line; /* giữ xuống dòng */
+        }
+        button {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            margin: 10px;
+            padding: 16px 36px;
+            font-size: 22px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+        button:hover { transform: scale(1.05); }
+
+        .no {
+            background-color: #ff4d4d;
+            color: #3ef244;
+        }
+        .yes {
+            background-color: #4caf50;
+            color: #f32f2f;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Nếu đọc được những lời trên rồi thì nếu cậu cảm thấy đ thích hay khó chịu hay phiền phức hay như nào đó thì hãy ấn nút đỏ nhé 😞  
+        Còn nếu cậu cảm thấy vui vẻ với điều đó thì hãy ấn nút xanh nha 😳
+    </p>
+
+    <button class="no" onclick="trackClick('next_no','6.red.html')">"Xanh"</button>
+    <button class="yes" onclick="trackClick('next_yes','6.green.html')">"Đỏ"</button>
+</body>
+</html>

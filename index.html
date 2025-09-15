@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đôi lời muốn nói</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GWYG74P3Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6GWYG74P3Y');
+
+      gtag('event', 'page_view', {
+          'page_title': 'index_page',
+          'page_path': '/index.html'
+      });
+
+      window.onload = function(){
+          document.body.style.opacity = "1";
+      }
+
+      function trackClick(choice, url){
+          gtag('event', 'button_click', {
+              'button_choice': choice,
+              'page': 'index.html'
+          });
+          document.body.style.opacity = "0";
+          setTimeout(function(){
+              window.location.href = url;
+          }, 500);
+      }
+
+      // Hàm mở khóa
+      function unlock(){
+          const SECRET = "ntpt051204"; // đổi mật khẩu ở đây
+          const v = document.getElementById("pw").value;
+          if(v === SECRET){
+              document.getElementById("locked").style.display = "none";
+              document.getElementById("content").style.display = "block";
+          } else {
+              const box = document.getElementById("pw");
+              box.classList.add("shake");
+              setTimeout(()=> box.classList.remove("shake"), 500);
+          }
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.8;  
+            max-width: 700px;  
+            margin: auto;      
+            padding-top: 100px;
+            background-color: #fde1ea;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        h1 { font-size: 36px; }
+        p { font-size: 22px; }
+
+        button {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            margin: 10px;
+            padding: 14px 32px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+        button:hover { transform: scale(1.05); }
+
+        .no { background-color: #ff4d4d; color: white; }
+        .yes { background-color: #4caf50; color: white; }
+
+        /* Hộp locked xinh xắn */
+        #locked {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #fde1ea;
+            animation: fadeIn 1s ease;
+        }
+        #locked h2 {
+            color: #d63384;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        #locked input {
+            padding: 12px 18px;
+            font-size: 18px;
+            border-radius: 30px;
+            border: 2px solid #ff99cc;
+            outline: none;
+            text-align: center;
+            transition: 0.3s;
+        }
+        #locked input:focus {
+            border-color: #ff4da6;
+            box-shadow: 0 0 8px #ff80bf;
+        }
+        #locked button {
+            background: linear-gradient(135deg, #ff99cc, #ff4da6);
+            color: white;
+            margin-top: 15px;
+            border-radius: 30px;
+            font-size: 18px;
+            padding: 10px 28px;
+        }
+        #locked button:hover {
+            background: linear-gradient(135deg, #ff80bf, #ff3385);
+        }
+
+        /* Hiệu ứng lắc khi sai */
+        .shake {
+            animation: shake 0.4s;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        #content { display: none; animation: fadeIn 1s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Khung nhập mật khẩu -->
+    <div id="locked">
+        <h2>🔒 Nhập mật khẩu để mở khóa</h2>
+        <input id="pw" type="password" placeholder="Mật khẩu bí mật..." />
+        <button onclick="unlock()">✨ Mở khóa ✨</button>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div id="content">
+        <h1>Tớ muốn có đôi lời muốn nói với cậu</h1>
+        <p>Cậu có muốn nghe không ?</p>
+        <button class="no" onclick="trackClick('no','1.sure.html')">ĐÉO</button>
+        <button class="yes" onclick="trackClick('yes','2.2yes.html')">"Cũng được thôi"</button>
+    </div>
+</body>
+</html>

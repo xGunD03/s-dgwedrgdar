@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Are you sure ?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+    <!-- Google tag (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GWYG74P3Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6GWYG74P3Y');
+
+      // Track pageview
+      gtag('event', 'page_view', {
+          'page_title': 'sure_page',
+          'page_path': '/1.sure.html'
+      });
+
+      // Fade-in khi load
+      window.onload = function(){
+          document.body.style.opacity = "1";
+      }
+
+      // Track click + fade-out
+      function trackClick(choice, url){
+          gtag('event', 'button_click', {
+              'button_choice': choice,
+              'page': '1.sure.html'
+          });
+
+          // Làm body mờ dần
+          document.body.style.opacity = "0";
+
+          // Sau 500ms mới redirect
+          setTimeout(function(){
+              window.location.href = url;
+          }, 500);
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: auto;
+            padding-top: 100px;
+            background-color: #6c6a6a;
+            transition: opacity 0.5s ease;
+            opacity: 0; /* ban đầu ẩn */
+        }
+        p { 
+            font-size: 36px; 
+            color: white; 
+        }
+        button {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            margin: 10px;
+            padding: 16px 36px;
+            font-size: 22px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .no { background-color: #c23a3a; color: #ffffff; }
+        .yes { background-color: #348237; color: #ffffff; }
+    </style>
+</head>
+<body>
+    <p>ARE YOU SUREEEEE ???</p>
+    <button class="no" onclick="trackClick('sure_no','2.1no.html')">Sure vl</button>
+    <button class="yes" onclick="trackClick('sure_yes','index.html')">Think again</button>
+</body>
+</html>

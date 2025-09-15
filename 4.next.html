@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>P/S</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GWYG74P3Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6GWYG74P3Y');
+
+      // Track page view
+      gtag('event', 'page_view', {
+          'page_title': 'yes_next_page',
+          'page_path': '/4.next.html'
+      });
+
+      // Track click + fade-out
+      function trackClick() {
+        gtag('event', 'button_click', {
+          'button_choice': 'next',
+          'page': '4.next.html'
+        });
+
+        document.body.classList.add("fade-out");
+        setTimeout(function(){
+          window.location.href = '5.next.html';
+        }, 800);
+      }
+
+      // Fade-in khi load
+      window.onload = function(){
+          document.body.classList.add("fade-in");
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            background-color: #fde1ea;
+            text-align: left;
+            line-height: 1.8;
+            max-width: 850px;
+            margin: auto;
+            padding-top: 150px;
+            font-size: 22px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        body.fade-in { opacity: 1; }
+        body.fade-out { opacity: 0; }
+
+        p { font-size: 20px; line-height: 1.6; max-width: 850px; margin: auto; white-space: pre-line; }
+        button {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            margin: 10px;
+            padding: 16px 36px;
+            font-size: 22px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .next {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <p> P/s: Tớ bắt đầu làm cái này từ rất lâu rồi nhưng mà đôi lúc có những suy nghĩ chợt tới làm tớ bỏ dở đ muốn làm cái này nữa và cũng đ có ý định gửi cậu nữa (tớ cũng đ biết gọi cái này là cái gì, cứ tạm gọi là tâm thư nhưng không viết tay đi)
+        Nhưng mà lại có đôi lúc tâm trạng tớ kiểu đb gì lại khiến tớ làm lại cái này (idk ¯\_(ツ)_/¯)
+        Nhưng mà làm xong rồi lại có những suy nghĩ ùa đến làm tớ phải thay đổi nội dung và 1 chút slide
+        Xong rồi tớ lại có suy nghĩ là 'hay thôi nhỉ dm, chắc đ gì người ta muốn đọc', rồi lại 1 thời gian trôi.
+
+        P/s 2: À tớ đ biết gì nhiều về code đâu, cái này tớ nhờ GPT hết đấy =)))) Shout out to GPT nhé 🗣️🔥
+        Nhưng mà ý tưởng và văn copyright của tớ nha =)))
+        Nhưng mà cũng phải test và sửa nhiều lần lắm mới ra được thành phẩm như ý tớ đấy :((
+
+
+
+
+        Sau nhiều vòng suy nghĩ luẩn quẩn tớ cũng đ biết sẽ gửi tâm thư này vào lúc nào, có thể sẽ là vào 1 ngày không trăng không sao, tâm trạng không buồn không vui...
+        Nhưng mà chắc chắn sẽ gửi cho cậu, Nguyễn Thị Phương Thanh 😊
+    </p>
+<button class="next" onclick="trackClick()">Next</button>
+</body>
+</html>

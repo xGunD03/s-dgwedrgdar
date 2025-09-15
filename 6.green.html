@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>GREEN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+    <!-- Google tag (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GWYG74P3Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6GWYG74P3Y');
+
+      // Track page view
+      gtag('event', 'page_view', {
+          'page_title': 'link_page',
+          'page_path': '/5.next.html'
+      });
+
+      // Khi load trang
+      window.onload = function(){
+          document.body.classList.add("fade-in");
+          typeEffect();
+          setInterval(() => {
+              const x = Math.random() * window.innerWidth;
+              const y = window.innerHeight/2 + Math.random() * (window.innerHeight/2);
+              createFirework(x, y);
+          }, 800); // nổ liên tục hơn
+      }
+
+      // Hiệu ứng gõ chữ
+      function typeEffect() {
+          const text = "Cảm ơn cậu vì đã nhấn nút xanh nhé\nNgay bây giờ sẽ có 1 tin nhắn gửi đến cậu!";
+          const container = document.getElementById("typing");
+          let i = 0;
+
+          function typing() {
+              if (i < text.length) {
+                  container.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+                  i++;
+                  setTimeout(typing, 70);
+              }
+          }
+          typing();
+      }
+
+      // Hiệu ứng pháo hoa
+      function createFirework(x, y) {
+        for (let i = 0; i < 50; i++) { // nhiều hạt hơn
+          const fw = document.createElement("div");
+          fw.className = "firework";
+          document.body.appendChild(fw);
+
+          const angle = Math.random() * 2 * Math.PI;
+          const distance = 80 + Math.random() * 200; // nổ to hơn
+          fw.style.left = x + "px";
+          fw.style.top = y + "px";
+          fw.style.setProperty("--x", Math.cos(angle) * distance + "px");
+          fw.style.setProperty("--y", Math.sin(angle) * distance + "px");
+          fw.style.background = `hsl(${Math.random()*360},100%,50%)`;
+
+          setTimeout(() => fw.remove(), 1200);
+        }
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            background-color: #fde1ea;
+            text-align: center;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: auto;
+            padding-top: 150px;
+            font-size: 26px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            overflow: hidden;
+        }
+        body.fade-in { opacity: 1; }
+        body.fade-out { opacity: 0; }
+
+        #typing {
+            font-size: 26px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+            white-space: pre-line;
+        }
+
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: yellow;
+            border-radius: 50%;
+            animation: explode 1.2s ease-out forwards;
+        }
+        @keyframes explode {
+            to {
+              transform: translate(var(--x), var(--y));
+              opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p id="typing"></p>
+</body>
+</html>

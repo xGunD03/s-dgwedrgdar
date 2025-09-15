@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6GWYG74P3Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6GWYG74P3Y');
+
+      // Track page view
+      gtag('event', 'page_view', {
+          'page_title': 'yes_next_page',
+          'page_path': '/3.next.html'
+      });
+
+      // Track click + fade-out
+      function trackClick() {
+        gtag('event', 'button_click', {
+          'button_choice': 'next',
+          'page': '3.next.html'
+        });
+
+        document.body.classList.add("fade-out");
+        setTimeout(function(){
+          window.location.href = '4.next.html';
+        }, 800);
+      }
+
+      // Fade-in khi load
+      window.onload = function(){
+          document.body.classList.add("fade-in");
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            background-color: #fde1ea;
+            text-align: left;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: auto;
+            padding-top: 150px;
+            font-size: 22px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        body.fade-in { opacity: 1; }
+        body.fade-out { opacity: 0; }
+
+        p { font-size: 20px; line-height: 1.6; max-width: 900px; margin: auto; white-space: pre-line; }
+        button {
+            font-family: 'Merriweather', serif;
+            font-weight: 300;
+            font-style: italic;
+            margin: 10px;
+            padding: 16px 36px;
+            font-size: 22px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .next {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <p> Tới đây rồi thì chắc cậu cũng không thấy phiền nữa đâu nhỉ? 👈(ﾟヮﾟ👈)
+        Thật ra tớ chỉ muốn nói vài lời thôi, không có gì quá to tát.  
+        Trước hết thì những dòng tin nhắn tớ nhắn hôm nọ là xamlon đấy, tớ đ muốn nó kết thúc như vậy, tất cả chỉ là những suy nghĩ ngu ngốc nhất thời thôi. Bây giờ xem lại mới thấy tớ ngu vailonnnnn =)))) Nếu được cậu hãy xóa hết cmn đi nhé.
+        Tớ không ngờ là 1 tháng nó trôi nhanh đến vậy và tớ cũng trải qua nhiều cung bậc cảm xúc lắm, lúc thăng lúc trầm lúc thì xoay mòng mòng xong rơi bịch 1 cái. 1 tháng đó tớ cũng khá là tò mò về cuộc sống của cậu, mặc dù có update đc thông qua những story của cậu nhưng chắc nó chỉ là 1 góc nhỏ thôi. Nhiều lần muốn nhắn tin hỏi thăm lắm nhưng ngại làm phiền cậu và có 1 cảm giác sượng sượng cấn cấn làm sao á 🥲
+        Để mà nói về trước đây thì tớ thực sự cảm thấy chúng ta giao tiếp với nhau nhiều lúc bị thiếu thoải mái và gượng ép. Tớ biết là cậu 'insane' hơn thế nhiều, nhưng có lẽ cậu đã cố kìm nén con mãnh thú trong mình =))))) Tớ cũng vậy á, và do tính tớ trầm thật nhưng mà 1 khi unlock được rồi thì tớ cũng dở hơi lắm. 
+        Và sau 1 thời gian suy nghĩ thì liệu bây giờ chúng ta có thể nói chuyện lại với nhau với tư cách bạn bè được không 🤝🏿, nói chuyện 1 cách thoải mái, không bị gò bó, vl dcm đéo điếc các kiểu đi. 
+        Tớ nghĩ rằng cái gì cũng phải bắt đầu vạch xuất phát của nó.
+        Mong rằng những điều này không làm cậu thấy khó xử.
+    </p>
+<button class="next" onclick="trackClick()">Next</button>
+</body>
+</html>
